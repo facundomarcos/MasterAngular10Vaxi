@@ -1,1 +1,7 @@
-<app-button>Boton de Prueba</app-button>
+<h2>Formularios Angular</h2>
+
+<app-button (click)="onPatchValue()">Agregar Texto</app-button>
+
+<form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
+  <app-input formControlName="input" ></app-input>
+</form>
