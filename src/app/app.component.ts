@@ -13,9 +13,9 @@ export class AppComponent {
 
 
   ngOnInit(){
-    this.fs.collection('test').snapshotChanges().subscribe( personas => {
-      console.log(personas.map( x => x.payload.doc.data()));
-    })
+    // this.fs.collection('test').snapshotChanges().subscribe( personas => {
+    //   console.log(personas.map( x => x.payload.doc.data()));
+    // })
   }
 
 
