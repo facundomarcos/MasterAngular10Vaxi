@@ -9,6 +9,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NotificationModule } from './services';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '@src/environments/environment';
@@ -42,7 +45,8 @@ const APP_DATE_FORMATS: MatDateFormats = {
     AngularFireAuthModule,
     AngularFireStorageModule,
     BrowserAnimationsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NotificationModule.forRoot()
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

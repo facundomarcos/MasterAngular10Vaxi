@@ -4,6 +4,8 @@ import { regex, regexErrors, markFormGroupTouched } from '@app/shared/utils';
 
 import { ControlItem } from '@app/models/frontend';
 
+import { NotificationService } from '@app/services';
+
 @Component({
   selector: 'app-shared',
   templateUrl: './shared.component.html',
@@ -19,7 +21,7 @@ export class SharedComponent implements OnInit {
 
   showSpinner = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private notification: NotificationService) {
     this.isInline = true;
     this.items = [
       { label: 'Test1', value: 1},
@@ -122,10 +124,10 @@ export class SharedComponent implements OnInit {
   }
 
   onSuccess(): void{
-
+    this.notification.success("Demo mensaje exitoso");
   }
 
   onError(): void{
-
+    this.notification.error("Demo mensaje error");
   }
 }
