@@ -68,12 +68,12 @@ export class SignOutError implements Action {
 
 
 export type All =
-      SignInEmail
-        SignInEmailSuccess
-        SignInEmailError
-        SignUpEmail
-        SignUpEmailSuccess
-        SignUpEmailError
-        SignOut
-        SignOutSuccess
+        SignInEmail |
+        SignInEmailSuccess |
+        SignInEmailError |
+        SignUpEmail |
+        SignUpEmailSuccess |
+        SignUpEmailError |
+        SignOut |
+        SignOutSuccess |
         SignOutError;
