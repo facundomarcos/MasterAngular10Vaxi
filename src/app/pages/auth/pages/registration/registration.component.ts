@@ -20,6 +20,7 @@ import * as fromUser from '@app/store/user';
 export class RegistrationComponent implements OnInit {
 
   form!:FormGroup;
+  regexErrors = regexErrors;
 
   constructor(
     private fb: FormBuilder,
@@ -63,6 +64,14 @@ export class RegistrationComponent implements OnInit {
     return passwordRepeat?.value && password?.value !== passwordRepeat?.value
     ? {repeat: true}
     : null;
+  }
+
+  onSubmit(): void{
+    if(this.form.valid){
+
+    }else{
+      markFormGroupTouched(this.form);
+    }
   }
 
 }
