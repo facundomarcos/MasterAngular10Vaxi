@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromRoot from './store';
 import * as fromDictionaries from './store/dictionaries';
+import * as fromUsers from './store/user';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent {
   constructor(private store: Store<fromRoot.State>){}
 
   ngOnInit(){
+    this.store.dispatch(new fromUsers.Init());
     // this.fs.collection('test').snapshotChanges().subscribe( personas => {
     //   console.log(personas.map( x => x.payload.doc.data()));
     // })

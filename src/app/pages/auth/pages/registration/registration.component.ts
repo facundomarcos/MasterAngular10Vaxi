@@ -21,6 +21,7 @@ export class RegistrationComponent implements OnInit {
 
   form!:FormGroup;
   regexErrors = regexErrors;
+  loading$ !: Observable<boolean | null> ;
 
   constructor(
     private fb: FormBuilder,
@@ -28,6 +29,10 @@ export class RegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loading$ = this.store.pipe(select(fromUser.getLoading));
+
+
+
     this.form = this.fb.group({
       email: [null, {
         updateOn: 'blur', validators: [
@@ -68,6 +73,15 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(): void{
     if(this.form.valid){
+
+      const value = this.form.value;
+
+      const credentials : fromUser.EmailPasswordCredentials = {
+        email: value.email,
+        password: value.password
+      };
+
+      this.store.dispatch(new fromUser.SignUpEmail(credentials));
 
     }else{
       markFormGroupTouched(this.form);
